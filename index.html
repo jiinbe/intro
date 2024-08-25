@@ -26,6 +26,41 @@ a:link, a:visited {
 color: #38488f;
 text-decoration: none;
 }
+.transition {
+position: absolute;
+height: 100%;
+width: 1000px;
+background-color: #fff;  
+transform: translate(-700px, 0);
+}
+.transition.animate {
+animation-name: animation-transition;
+animation-duration: 3s;
+animation-timing-function: ease-in-out;
+}
+
+@keyframes animation-transition {
+0%   { transform: translate(-700px, 0);  z-index: 0; }
+25%  { transform: translate(-900px, 0);  z-index: 0; }
+26%  { transform: translate(-900px, 0); z-index: 100; }
+50%  { transform: translate(0, 0); z-index: 100; }
+75%  { transform: translate(-900px, 0); z-index: 100; }
+76%  { transform: translate(-900px, 0);  z-index: 0; }
+100% { transform: translate(-700px, 0);  z-index: 0; }
+}
+
+.content-intro, 
+.content-info {
+width: 80%;
+position: relative;
+padding-top: 5em auto;
+padding-left: 2em;
+color: #384059;
+z-index: 10;
+}
+.hidden {
+display: none;
+}
 @media (max-width: 700px) {
 div {
 margin: 0 auto;
