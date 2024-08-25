@@ -1,18 +1,18 @@
 var nextBtnEl = document.querySelector(".next");
 var backBtnEl = document.querySelector(".back");
 var transitionEl = document.querySelector(".transition");
-var infoEl = document.querySelector(".content-info");
-var introEl = document.querySelector(".content-intro");
+var infoEl = document.querySelector(".main-info");
+var introEl = document.querySelector(".main-intro");
 
 
 function showInfoEl() {
-  infoEl.className = "content-info";
-  introEl.className = "content-intro hidden";
+  infoEl.className = "main-info";
+  introEl.className = "main-intro hidden";
 }
 
 function showIntroEl() {
-  infoEl.className = "content-info hidden";
-  introEl.className = "content-intro";
+  infoEl.className = "main-info hidden";
+  introEl.className = "main-intro";
 }
 
 function resetTransition() {
