@@ -3,11 +3,49 @@
 <title>data.txt: Data for the Web</title>
 <link rel="icon" type="image/png" href="datatxt.png"/>
 <style>
-body {
+.main-intro, 
+.main-info {
 max-width: 600px;
 margin: 10% auto 10% auto;
 text-align: justify;
 font-family: monospace;
+}
+.transition {
+position: absolute;
+height: 100vh;
+width: 100vw;
+background-color: #fdfdff;  
+transform: translate(-700px, 0);
+}
+.transition.animate {
+animation-name: animation-transition;
+animation-duration: 3s;
+animation-timing-function: ease-in-out;
+}
+
+@keyframes animation-transition {
+0%   { transform: translate(-700px, 0);  z-index: 0; }
+25%  { transform: translate(-900px, 0);  z-index: 0; }
+26%  { transform: translate(-900px, 0); z-index: 100; }
+50%  { transform: translate(0, 0); z-index: 100; }
+75%  { transform: translate(-900px, 0); z-index: 100; }
+76%  { transform: translate(-900px, 0);  z-index: 0; }
+100% { transform: translate(-700px, 0);  z-index: 0; }
+}
+/*
+.content-intro, 
+.content-info,
+.transition {
+width: 80%;
+position: relative;
+padding-top: 5em auto;
+padding-left: 2em;
+color: #384059;
+z-index: 10;
+}
+*/
+.hidden {
+display: none;
 }
 </style>
 </head>
