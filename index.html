@@ -1,104 +1,26 @@
-<!doctype html>
 <html>
 <head>
-<title>Example Domain</title>
-
-<meta charset="utf-8" />
-<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<style type="text/css">
+<title>data.txt: Data for the Web</title>
+<link rel="icon" type="image/png" href="datatxt.png"/>
+<style>
 body {
-background-color: #fdfdff;
-margin: 0;
-padding: 0;
-font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;        
-overflow: hidden;
-overscroll-behavior: none; 
+max-width: 600px;
+margin: 10% auto 10% auto;
+text-align: justify;
+font-family: monospace;
 }
-.main-intro, 
-.main-info  {
-width: 600px;
-margin: 5em auto;
-padding: 2em;
-background-color: #fdfdff;
-position: relative;
-z-index: 10;
-}
-a:link, a:visited {
-color: #38488f;
-text-decoration: none;
-}
-.transition {
-position: absolute;
-height: 100vh;
-width: 100vw;
-background-color: #fdfdff;  
-transform: translate(-700px, 0);
-}
-.transition.animate {
-animation-name: animation-transition;
-animation-duration: 3s;
-animation-timing-function: ease-in-out;
-}
-
-@keyframes animation-transition {
-0%   { transform: translate(-700px, 0);  z-index: 0; }
-25%  { transform: translate(-900px, 0);  z-index: 0; }
-26%  { transform: translate(-900px, 0); z-index: 100; }
-50%  { transform: translate(0, 0); z-index: 100; }
-75%  { transform: translate(-900px, 0); z-index: 100; }
-76%  { transform: translate(-900px, 0);  z-index: 0; }
-100% { transform: translate(-700px, 0);  z-index: 0; }
-}
-/*
-.content-intro, 
-.content-info,
-.transition {
-width: 80%;
-position: relative;
-padding-top: 5em auto;
-padding-left: 2em;
-color: #384059;
-z-index: 10;
-}
-*/
-.hidden {
-display: none;
-}
-@media (max-width: 700px) {
-.main-intro, 
-.main-info {
-margin: 0 auto;
-width: auto;
-}
-}
-</style>    
+</style>
 </head>
-
 <body>
-<div class="transition"></div>
-<div class="main-intro">
-<h1>Example Domain</h1>
-<p>Tambahkan tampilan yang disesuaikan ke profil Facebook hanya dalam beberapa langkah. Buat bingkai di sini untuk teman dan pengikut Anda menggunakan karya seni bingkai Anda sendiri.</p>
-<h2>Cara Membuat Bingkai</h2>
-<ol>
-<li>Pilih foto terbaik Anda.</li>
-<li>Pilih bingkai Anda dengan latar belakang transparan sebagai File .PNG, yang berukuran kurang dari 1MB.</li>
-<li>Geser atau tarik ukuran disudut foto dan sesuaikan bingkai Anda.</li>
-<li>Klik download.</li>
-<li>Klik terbitkan atau bagikan.</li>
-</ol>
-<button class="next">next</button>
-</div>
-
-<div class="main-info hidden">
-<h1>Hello World!</h1>
-<p>This domain is for use in illustrative examples in documents. You may use this
-domain in literature without prior coordination or asking for permission.</p>
-<p><a href="https://www.iana.org/domains/example">More information...</a></p>
-<button class="back">back</button>
-</div>
-
-<script src="js/intro.js"></script>
+<h1><mark>data.txt</mark>: Data for the Web</h1>
+<p>
+The <a href="https://www.robotstxt.org">robots.txt</a> and <a href="http://humanstxt.org">humans.txt</a> files describe a website's content for web crawlers and people. In a similar way, a <b>data.txt</b> file describes a website's content for data discovery and access.
+</p>
+<p>
+A <a href="/data.txt">data.txt</a> file is a file describing one or many data sources available through your website. Each entry must contain a 'path' attribute to point to the location of each data source, it can also contain optional attributes like 'description', 'license', 'name', and so on.
+</p>
+<p>
+The <a href="https://github.com/datatxtorg/datatxt-spec">specification</a> is under active development, it is intended to be a subset of <a href="https://yaml.org/">yaml</a> to make it secure and easy to parse with existing or custom parsers.
+</p>
 </body>
 </html>
