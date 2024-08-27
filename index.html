@@ -53,6 +53,8 @@ font-size: 20px;
 <nav id="top">
 <button class="file" onclick="document.getElementById('photo').click();">Pilih Foto</button>
 <button class="file" onclick="document.getElementById('frame').click();">Pilih Bingkai</button>
+<input type="file" id="photo" oninput="checkInput()" accept="image/*" hidden/>
+<input type="file" id="frame" oninput="checkInput()" accept="image/*" hidden/>
 </nav>
 
 <h1>PFP GENERATOR</h1>
