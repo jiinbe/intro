@@ -28,7 +28,10 @@ margin-top: 5px;
 
 <body>
 <div id="container"></div>
-<div id="buttons"><button id="save">Save as image</button></div>
+<div id="buttons">
+<button class="file" onclick="document.getElementById('photo').click();">Pilih Foto</button>
+<button class="file" onclick="document.getElementById('frame').click();">Pilih Bingkai</button>
+</div>
 <script>
 var width = window.innerWidth;
 var height = window.innerHeight;
