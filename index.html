@@ -29,6 +29,9 @@ margin-top: 5px;
 <body>
 <div id="container"></div>
 <div id="buttons">
+<input type="file" id="photo" oninput="checkInput()" accept="image/*" hidden/>
+<input type="file" id="frame" oninput="checkInput()" accept="image/*" hidden/>
+
 <button class="file" onclick="document.getElementById('photo').click();">Pilih Foto</button>
 <button class="file" onclick="document.getElementById('frame').click();">Pilih Bingkai</button>
 </div>
