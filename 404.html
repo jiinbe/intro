@@ -1,0 +1,72 @@
+<!-- native bridge - for Android native wrapper trigger requestError method -->
+<script type="text/javascript">
+if (window.Android && window.Android.requestError) {
+window.Android.requestError();
+}
+
+var images = [
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Oscar.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Willie.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Beesly.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Bentleigh.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Bosco.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Bruno.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Cleo.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Charley.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Charlie.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Copper.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Dansby.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Dottie.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Freya.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Goblin.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Hendrix.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Howly.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Kanga.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Kevin.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Link.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Dirty.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Liz.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Maxine.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Mousse.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Nikitas.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Pheebs.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Pippin.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Pogi.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Pooka.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Popeye.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Remington.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Rey.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Riley.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Roux.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Ruby.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Taco.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Troy.png",
+"https://cdn-images.mailchimp.com/product/mailchimp-pet/Zelda.png",
+];
+
+
+function onImageClick(event) {
+var imagePath = this.src;
+var relativePath = imagePath.substring(imagePath.indexOf("https://cdn-images.mailchimp.com/product/mailchimp-pet"));
+var currentIndex = images.indexOf(relativePath);
+var nextIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+var nextImage = images[nextIndex];
+var nextTitle = nextImage.substring(
+nextImage.lastIndexOf("/") + 1,
+nextImage.lastIndexOf(".")
+);
+
+if (document.getElementById("pet404").style.display === "none") {
+document.getElementById("pet404").style.display = "";
+}
+document.getElementById("petName").innerText = nextTitle;
+
+this.alt = "A pet named " + nextTitle;
+this.src = nextImage;
+}
+
+document
+.getElementById("404image")
+.addEventListener("click", onImageClick, false);
+
+</script>
