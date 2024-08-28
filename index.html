@@ -34,14 +34,15 @@ margin-top: 5px;
 <body>
 <div id="container"></div>
 <div id="buttons">
-<input type="file" id="photo" oninput="checkInput()" accept="image/*" hidden/>
-<input type="file" id="frame" oninput="checkInput()" accept="image/*" hidden/>
-
 <button class="file" onclick="document.getElementById('photo').click();">Pilih Foto</button>
 <button class="file" onclick="document.getElementById('frame').click();">Pilih Bingkai</button>
 <button class="dl" id="dl" disabled>Download</button>
 <button class="share" id="shared" disabled>Share</button>
 </div>
+  
+<input type="file" id="photo" oninput="checkInput()" accept="image/*" hidden/>
+<input type="file" id="frame" oninput="checkInput()" accept="image/*" hidden/>
+
 <script>
 var canvas = new fabric.Canvas('imageCanvas', {
 backgroundColor: 'rgb(240,240,240)'
