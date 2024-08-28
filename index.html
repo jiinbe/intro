@@ -1,232 +1,89 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="dark light">
-<link rel="icon" href="data:,">
-<title>PFP GENERATOR</title>
+<script src="https://unpkg.com/konva@9.3.14/konva.min.js"></script>
+<meta charset="utf-8" />
+<title>Konva High Quality Export Demo</title>
 <style>
-* {
-box-sizing:border-box;
-}
 body {
-font-family:sans-serif;
-line-height:1.33;
-margin:0 auto;
-max-width:650px;
-padding:1rem;
-}
-blockquote {
-border-left:4px solid;
-padding-left:5px;
-}
-img {
-max-width:100%;
-}
-pre {
-border:1px solid;
-overflow:auto;
-padding:5px;
-}
-a:link {
-text-decoration:none;
-}
-a:visited {
-text-decoration:none;
-}
-a:hover {
-text-decoration:underline;
-}
-a:active {
-text-decoration:underline;
-}
-button {
-padding: 15px 32px;
-font-size: 20px;
-}
-.box {
-background-color: #f0f0f2;
-position: relative;
+margin: 0;
+padding: 0;
 overflow: hidden;
-width: 100%;
-aspect-ratio: 1/1;
+background-color: #f0f0f0;
 }
-.box img  {
+
+#buttons {
 position: absolute;
-top: 50%;
-left: 50%;
--webkit-transform: translate(-50%,-50%);
--ms-transform: translate(-50%,-50%);
-transform: translate(-50%,-50%);
-width: 100%;
-aspect-ratio: 1/1;
--o-object-fit:cover;
-object-fit:cover;
+top: 5px;
+left: 10px;
+}
+
+#buttons > input {
+padding: 10px;
+display: block;
+margin-top: 5px;
 }
 </style>
-  
-<script src="https://jiinbe.github.io/image/app/jquery.min.js"></script>
-<script src="https://jiinbe.github.io/image/app/fabric.min.js"></script>
-<script src="https://jiinbe.github.io/image/app/FileSaver.js"></script>
-<script src="https://jiinbe.github.io/image/app/canvas-toBlob.js"></script>
 </head>
 
-<nav id="top">
-<button class="file" onclick="document.getElementById('photo').click();">Pilih Foto</button>
-<button class="file" onclick="document.getElementById('frame').click();">Pilih Bingkai</button>
-<input type="file" id="photo" oninput="checkInput()" accept="image/*" hidden/>
-<input type="file" id="frame" oninput="checkInput()" accept="image/*" hidden/>
-</nav>
-
-<h1>PFP GENERATOR</h1>
-<p class="box"><canvas id="imageCanvas"></canvas> </p>
-<p>
-<button class="dl" id="dl" disabled>Download</button>
-<button class="share" id="shared" disabled>Share</button>
-</p>
-<hr />
-<footer role="contentinfo">
-<small>
-Feeds: <a href="/atom.xml">Atom</a> | <a href="/rss.xml">RSS</a> <br>
-Built with <a href="https://barf.btxx.org">barf</a>. <br>
-The content for this site is <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>.<br>
-The <a href="#">code for this site</a> is <a href="https://git.sr.ht/~adamski/adast.dk/tree/main/item/LICENSE">MIT</a>.
-</small>
-</footer>
-
+<body>
+<div id="container"></div>
+<div id="buttons"><button id="save">Save as image</button></div>
 <script>
-var canvas = new fabric.Canvas('imageCanvas', {
-backgroundColor: 'rgb(240,240,240)'
+var width = window.innerWidth;
+var height = window.innerHeight;
+
+var stage = new Konva.Stage({
+container: 'container',
+width: width,
+height: height,
 });
-  
-fabric.Object.prototype.transparentCorners = false;
-fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
-  
-canvas.selection = false;
-canvas.setWidth(625);
-canvas.setHeight(625);
 
-var imageLoader = document.getElementById('photo');
-imageLoader.addEventListener('change', handleImage, false);
+var layer = new Konva.Layer();
+stage.add(layer);
 
-function handleImage(e) {
-var objects = canvas.getObjects();
-for (var i in objects) {
-objects[i].remove();
-}
-var reader = new FileReader();
-reader.onload = function(event) {
-var img = new Image();
-img.onload = function() {
-var imgInstance = new fabric.Image(img, {
-selectable: 1,
-borderColor: 'black',
-cornerColor: 'black',
-cornerSize: 30
-})
-canvas.add(imgInstance);
-/* var red = new fabric.Rect({ width: 600, height: 600, fill: 'red'})
-canvas.add(red);
-red.center(); */
-canvas.deactivateAll().renderAll();
-}
+var box = new Konva.Rect({
+x: stage.width() / 2 - 50,
+y: stage.height() / 2 - 25,
+width: 100,
+height: 50,
+fill: '#00D2FF',
+stroke: 'black',
+strokeWidth: 4,
+draggable: true,
+});
+layer.add(box);
 
-var iimageLoader = document.getElementById('frame');
-iimageLoader.addEventListener('change', handleImage, false);
+var circle = new Konva.Circle({
+x: stage.width() - 50,
+y: stage.height() - 50,
+radius: 50,
+fill: 'red',
+stroke: 'black',
+strokeWidth: 4,
+draggable: true,
+});
+layer.add(circle);
 
-function handleImage(f) {
-var objects = canvas.getObjects();
-/* for (var i in objects) {
-objects[i].remove();
-} */
-var reader = new FileReader();
-reader.onload = function(event) {
-
-var fimg = new Image();
-fimg.onload = function() {
-var fimgInstance = new fabric.Image(fimg, {
-selectable: 0,
-width: 625,
-height: 625
-})
-canvas.add(fimgInstance);
-fimgInstance.center();
-/* var red = new fabric.Rect({ width: 600, height: 600, fill: 'red'})
-canvas.add(red);
-red.center(); */
-canvas.deactivateAll().renderAll();
-}
-fimg.src = event.target.result;
-}
-reader.readAsDataURL(f.target.files[0]);
+// function from https://stackoverflow.com/a/15832662/512042
+function downloadURI(uri, name) {
+var link = document.createElement('a');
+link.download = name;
+link.href = uri;
+document.body.appendChild(link);
+link.click();
+document.body.removeChild(link);
+delete link;
 }
 
-img.src = event.target.result;
-
-}
-reader.readAsDataURL(e.target.files[0]);
-}
-
-canvas.on({
-'object:moving': function(e) {
-e.target.opacity = 0.5;
+document.getElementById('save').addEventListener(
+'click',
+function () {
+var dataURL = stage.toDataURL({ pixelRatio: 3 });
+downloadURI(dataURL, 'stage.png');
 },
-'object:modified': function(e) {
-e.target.opacity = 1;
-}
-});
-
-
-var font = new fabric.Text('HELLO WORLD!', { 
-fill: 'black',
-originX: 'center',
-originY: 'center'
-}); 
-canvas.add(font); 
-canvas.centerObject(font);
-  
-$("#dl").click(function(){
-$("#imageCanvas").get(0).toBlob(function(blob){
-saveAs(blob, "image.png");
-});
-});
-
-function checkInput() {
-var input = document.getElementById('photo').value;
-var input2 = document.getElementById('frame').value;
-var button = document.getElementById('dl');
-var button2 = document.getElementById('shared');
-button.disabled = input === '';
-button2.disabled = input2 === '';
-}
+false
+);
 </script>
-<script>
-document.getElementById("shared").addEventListener("click", () => {
-alert("share image");
-const dataUrl = canvas.toDataURL(); 
-fetch(dataUrl)
-.then(res => res.blob())
-.then(blob => {
-//console.log(blob)
-const filesArray = [new File([blob], 'image.png', { type: blob.type, lastModified: new Date().getTime() })];
-console.log(filesArray);
-const shareData = {
-title: "FREE AND SIMPLE PFP GENERATOR",
-text: "FREE AND SIMPLE PFP GENERATOR",
-url: "https://jiinbe.github.io/fabricjs2/",
-files: filesArray
-};
-console.log(shareData);
-if (navigator.share) {
-navigator.share(
-shareData
-)
-.then(() => alert("thanks for share")) 
-.catch(error => alert("error", error)); 
-} else {
-alert('navigator.share not available'); 
-}
-})
-});
-</script>
+</body>
+</html>
