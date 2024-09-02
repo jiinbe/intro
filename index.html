@@ -29,15 +29,24 @@ margin: 0 0 14px 0;
 padding: 14px 15px 10px 15px;
 }
 
-code {
-font-family: Consolas, Monaco, Courier New, Courier, monospace;
-font-size: 12px;
-background-color: #f9f9f9;
-border: 1px solid #D0D0D0;
-color: #002166;
-display: block;
-margin: 14px 0 14px 0;
-padding: 12px 10px 12px 10px;
+.box {
+background-color: #f0f0f2;
+position: relative;
+overflow: hidden;
+width: 100%;
+aspect-ratio: 1/1;
+}
+.box img  {
+position: absolute;
+top: 50%;
+left: 50%;
+-webkit-transform: translate(-50%,-50%);
+-ms-transform: translate(-50%,-50%);
+transform: translate(-50%,-50%);
+width: 100%;
+aspect-ratio: 1/1;
+-o-object-fit:cover;
+object-fit:cover;
 }
 
 #container {
@@ -53,7 +62,7 @@ margin: 12px 15px 12px 15px;
 <body>
 <div id="container">
 <h1>Twibbon KonvaJS</h1>
-<p><iframe src="twibbon" width="1000" height="1000" frameborder="0" loading="lazy" allowfullscreen></iframe></p> 
+<p><iframe class="box" src="twibbon" width="1000" height="1000" frameborder="0" loading="lazy" allowfullscreen></iframe></p> 
 <h1>Tutorial:</h1>
 <p>1. Klik "<strong>Pilih File</strong>".</p>
 <p>2. Selanjutnya klik "<strong>Download</strong>".</p>
