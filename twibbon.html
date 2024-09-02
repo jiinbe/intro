@@ -14,7 +14,7 @@ background-color: #f0f0f0;
 #buttons {
 position: absolute;
 bottom: 5px;
-left: 10px;
+right: 10px;
 }
 
 #buttons > input {
@@ -51,8 +51,8 @@ fabric.Object.prototype.transparentCorners = false;
 fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
   
 canvas.selection = false;
-canvas.setWidth(500);
-canvas.setHeight(500);
+canvas.setWidth(600);
+canvas.setHeight(600);
 
 var imageLoader = document.getElementById('photo');
 imageLoader.addEventListener('change', handleImage, false);
@@ -94,8 +94,8 @@ var fimg = new Image();
 fimg.onload = function() {
 var fimgInstance = new fabric.Image(fimg, {
 selectable: 0,
-width: 500,
-height: 500
+width: 600,
+height: 600
 })
 canvas.add(fimgInstance);
 fimgInstance.center();
