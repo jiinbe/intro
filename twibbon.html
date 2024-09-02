@@ -23,6 +23,18 @@ padding: 10px;
 display: block;
 margin-bottom: 5px;
 }
+
+.file {
+display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  transition: background-color ease 0.15s;
+  background-color: #000;
+  border-radius: 5px;
+}
 </style>
 
 <script src="app/jquery.min.js"></script>
@@ -36,8 +48,8 @@ margin-bottom: 5px;
 <div id="buttons">
 <button class="file" onclick="document.getElementById('photo').click();"><i class="fa fa-image" style="font-size:24px"></i></button>
 <button class="file" onclick="document.getElementById('frame').click();"><i class="fa fa-object-group" style="font-size:24px"></i></button>
-<button class="dl" id="dl" disabled><i class="fa fa-download" style="font-size:24px"></i></button>
-<button class="share" id="shared" disabled><i class="fa fa-share-alt" style="font-size:24px"></i></button>
+<button class="file" id="dl" disabled><i class="fa fa-download" style="font-size:24px"></i></button>
+<button class="file" id="shared" disabled><i class="fa fa-share-alt" style="font-size:24px"></i></button>
 </div>
   
 <input type="file" id="photo" oninput="checkInput()" accept="image/*" hidden/>
