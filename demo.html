@@ -104,5 +104,13 @@ color: #98d7ec;
 </li>
 </ul>
 </nav>
+
+<script src=""></script>
+<script>
+$('ul li').on('click', function() {
+	$('li').removeClass('active');
+	$(this).addClass('active');
+});
+</script>
 </body>
 </html>
