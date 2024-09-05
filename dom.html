@@ -44,7 +44,13 @@ min-width: 100px;
 <div class="container">
 <div class="left">
 <p>HZFE Tips:</p>
-这是一段自适应宽度的标注
+<button class="file" onclick="document.getElementById('photo').click();" style="font-size:24px"><i class="fa fa-image"></i></button>
+<button class="file" onclick="document.getElementById('frame').click();" style="font-size:24px"><i class="fa fa-object-group"></i></button>
+<button class="file" id="dl" disabled style="font-size:24px"><i class="fa fa-download"></i></button>
+<button class="file" id="shared" disabled style="font-size:24px"><i class="fa fa-share-alt"></i></button>
+  
+<input type="file" id="photo" oninput="checkInput()" accept="image/*" hidden/>
+<input type="file" id="frame" oninput="checkInput()" accept="image/*" hidden/>
 </div>
 <div class="right">
 <p>HZFE Tips:</p>
