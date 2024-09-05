@@ -7,30 +7,42 @@
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <style type="text/css">
+/* Layout: */
+
+.col-main {
+flex: 3;  
+}  
+
+.col-complementary {
+flex: 1;  
+}
+
+/* Responsive: */
+
+@media only screen and (min-width: 640px) {
+.layout {
+display: flex;
+}
+}
+
+/* etc */
+
 body {
-background-color: #f0f0f2;
-margin: 0;
-padding: 0;
-font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;        
+margin: 1.5em;
 }
-div {
-width: 600px;
-margin: 5em auto;
-padding: 2em;
-background-color: #fdfdff;
-border-radius: 0.5em;
-box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
+
+.container {
+max-width: 60em;
+margin-right: auto;
+margin-left: auto;
 }
-a:link, a:visited {
-color: #38488f;
-text-decoration: none;
+
+.col {
+padding: 1em;
+margin: 0 2px 2px 0;
+background: #b3e888;
 }
-@media (max-width: 700px) {
-div {
-margin: 0 auto;
-width: auto;
-}
-}
+
 </style>    
 </head>
 
